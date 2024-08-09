@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ContactList } from "../../components/ContactList/ContactList";
 import { ContactForm } from "../../components/ContactForm/ContactForm";
-import { fetchTasks } from "../../redux/tasks/operations";
-import { selectLoading } from "../../redux/tasks/selectors";
+import { fetchContacts } from "../../redux/contacts/operations";
+import { selectLoading } from "../../redux/filters/selectors";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
 
   useEffect(() => {
-    dispatch(fetchTasks());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (

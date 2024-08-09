@@ -1,7 +1,7 @@
 import { useEffect, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "../components/Layout/Layout";
+import  Layout  from "../components/Layout/Layout";
 import { PrivateRoute } from "../components/PrivateRoute/PrivateRoute";
 import { RestrictedRoute } from "../components/RestrictedRoute/RestrictedRoute";
 //import { refreshUser } from "../redux/auth/operations";
@@ -41,7 +41,7 @@ export const App = () => {
         <Route
           path="/tasks"
           element={
-            <PrivateRoute redirectTo="/login" component={<TasksPage />} />
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
       </Routes>

@@ -1,5 +1,4 @@
-
-
+import { AppBar } from "../../components/AppBar/AppBar";
 
 export default function Layout({ children }) {
     return (
