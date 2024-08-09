@@ -1,10 +1,11 @@
+
 import { AppBar } from "../../components/AppBar/AppBar";
 
 export default function Layout({ children }) {
-    return (
-      <div>
-        <AppBar />
-        {children}
-      </div>
-    );
+  return (
+    <div className={css.container}>
+      <AppBar />
+      {children}
+    </div>
+  );
 }

@@ -18,7 +18,7 @@ const filtersSlice = createSlice({
 export const { changeFilter } = filtersSlice.actions;
 
 // Функція-селектор для використання в useSelector
-export const selectNameFilter = (state) => state.filters.name;
+//export const selectNameFilter = (state) => state.filters.name;
 
 // Редюсер слайсу
 export const filterReducer = filtersSlice.reducer;
