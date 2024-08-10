@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  name: "",
+  filter: "",
 };
 
 const filtersSlice = createSlice({
@@ -9,7 +9,7 @@ const filtersSlice = createSlice({
   initialState,
   reducers: {
     changeFilter(state, action) {
-      state.name = action.payload;
+      state.filter = action.payload;
     },
   },
 });
@@ -17,8 +17,5 @@ const filtersSlice = createSlice({
 // eкшен для використання в dispatch
 export const { changeFilter } = filtersSlice.actions;
 
-// Функція-селектор для використання в useSelector
-//export const selectNameFilter = (state) => state.filters.name;
-
 // Редюсер слайсу
-export const filterReducer = filtersSlice.reducer;
+export default filtersSlice.reducer;

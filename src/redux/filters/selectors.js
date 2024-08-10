@@ -1,8 +1,4 @@
-export const selectLoading = (state) => state.tasks.loading;
-
-export const selectFilter = (state) => state.tasks.filter;
-
-export const selectAllTasks = (state) => state.tasks.items;
+export const selectFilter = (state) => state.filters.filter;
 
 // Функція-селектор для використання в useSelector
-export const selectNameFilter = (state) => state.filters.name;
+//export const selectNameFilter = (state) => state.filters.name;
