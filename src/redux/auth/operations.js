@@ -5,7 +5,7 @@ axios.defaults.baseURL = `https://connections-api.goit.global/`;
 
 // Utility to add JWT
 const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 // Utility to remove JWT
@@ -40,7 +40,6 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post("/users/login", credentials);
-      axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
       // After successful login, add the to.n to the HTTP header
       setAuthHeader(res.data.token);
       return res.data;
