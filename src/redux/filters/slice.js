@@ -18,4 +18,4 @@ const filtersSlice = createSlice({
 export const { changeFilter } = filtersSlice.actions;
 
 // Редюсер слайсу
-export default filtersSlice.reducer;
+export const filterReducer = filtersSlice.reducer;
