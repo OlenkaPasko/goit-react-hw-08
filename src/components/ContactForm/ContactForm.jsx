@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { addContact } from "../../redux/contacts/operations";
+import css from "./ContactForm.module.css"
 
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
@@ -32,7 +33,7 @@ export default function ContactForm() {
   return (
     <Formik onSubmit={handleSubmit} validationSchema={validationSchema}>
       <Form autoComplete="off" className={css.form}>
-        <label className={css.label}>
+        <label className={css.input}>
           <Field type="text" name="text" title="Please enter your name" />
           <ErrorMessage name="name" />
         </label>
