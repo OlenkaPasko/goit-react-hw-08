@@ -26,15 +26,9 @@ export default function LoginForm() {
 
     form.reset();
   };
-  
+
   return (
-    <Formik
-      initialValues={{
-        email: "",
-        password: "",
-      }}
-      onSubmit={handleSubmit}
-    >
+    <Formik onSubmit={handleSubmit}>
       <Form className={css.form} autoComplete="off">
         <label>
           Email
