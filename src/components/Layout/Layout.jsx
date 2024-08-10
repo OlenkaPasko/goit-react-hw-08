@@ -1,6 +1,5 @@
-
 import { AppBar } from "../../components/AppBar/AppBar";
-
+import css from "./Layout.module.css"
 export default function Layout({ children }) {
   return (
     <div className={css.container}>
