@@ -32,7 +32,7 @@ export default function ContactForm() {
 
   return (
     <Formik onSubmit={handleSubmit} validationSchema={validationSchema}>
-      <Form autoComplete="off" className={css.form}>
+      <Form autoComplete="off" className={css.contact_form}>
         <label className={css.input}>
           <Field type="text" name="text" title="Please enter your name" />
           <ErrorMessage name="name" />
