@@ -3,9 +3,9 @@ import { logOut } from "../../redux/auth/operations";
 import { selectUser } from "../../redux/auth/selectors";
 import css from "./UserMenu.module.css";
 
-export const UserMenu = () => {
+export default function UserMenu() {
   const dispatch = useDispatch();
-  const { user } = useSelector(selectUser);
+  const user = useSelector(selectUser);
 
   return (
     <div className={css.wrapper}>

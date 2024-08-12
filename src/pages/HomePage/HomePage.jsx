@@ -1,17 +1,16 @@
-import css from "./HomePage.module.css"
+import PageTitle from "../../components/PageTitle/PageTitle";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
     <>
-      <title>Home</title>
-
       <div className={css.container}>
-        <h1 className={css.title}>
+        <PageTitle>
           Task manager welcome page{" "}
           <span role="img" aria-label="Greeting icon">
             💁‍♀️
           </span>
-        </h1>
+        </PageTitle>
       </div>
     </>
   );
