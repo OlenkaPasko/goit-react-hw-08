@@ -4,16 +4,16 @@ import { addContact } from "../../redux/contacts/operations";
 
 import css from "./ContactForm.module.css";
 
-import * as Yup from "yup";
+///import * as Yup from "yup";
 
-const validationSchema = Yup.object({
-  name: Yup.string()
-    .required("Name is required")
-    .min(3, "Name must be at least 3 characters long"),
-  number: Yup.string()
-    .required("Required")
-    .matches(/^[0-9]{10}$/, "Number must be exactly 10 digits"),
-});
+//const validationSchema = Yup.object({
+ // name: Yup.string()
+  //  .required("Name is required")
+   // .min(3, "Name must be at least 3 characters long"),
+ // number: Yup.string()
+   // .required("Required")
+   // .matches(/^[0-9]{10}$/, "Number must be exactly 10 digits"),
+//});
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export default function ContactForm() {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={validationSchema}
+      
     >
       <Form autoComplete="off" className={css.contact_form}>
         <label className={css.contact_input}>
