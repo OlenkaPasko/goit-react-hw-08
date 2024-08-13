@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
 import { Formik, Form, Field } from "formik";
 import css from "./LoginForm.module.css";
-
+import * as Yup from "yup";
 export default function LoginForm() {
   const dispatch = useDispatch();
 
@@ -10,13 +10,21 @@ export default function LoginForm() {
     dispatch(logIn(values));
     actions.resetForm();
   };
-
+const validationSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Невірний формат email")
+    .required("Обов'язково для заповнення"),
+  password: Yup.string()
+    .min(6, "Пароль повинен містити щонайменше 6 символів")
+    .required("Обов'язково для заповнення"),
+});
   return (
     <Formik
       initialValues={{
         email: "",
         password: "",
       }}
+      validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
       <Form className={css.form} autoComplete="off">

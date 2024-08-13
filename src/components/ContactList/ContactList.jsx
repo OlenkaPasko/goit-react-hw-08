@@ -7,9 +7,9 @@ export default function ContactList () {
 const filteredContacts = useSelector(selectFilteredContacts);
   return (
     <ul>
-      {filteredContacts.map((item) => (
-        <li key={item.id}>
-          <Contact data={item} />
+      {filteredContacts.map(({ id, name, number }) => (
+        <li key={id}>
+          <Contact name={name} number={number} contactId={id} />
         </li>
       ))}
     </ul>
