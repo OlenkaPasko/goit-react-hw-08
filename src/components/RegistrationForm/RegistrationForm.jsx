@@ -12,29 +12,31 @@ export default function RegistrationForm() {
   };
 
   return (
-    <Formik
-      initialValues={{
-        name: "",
-        email: "",
-        password: "",
-      }}
-      onSubmit={handleSubmit}
-    >
-      <Form className={css.form_register} autoComplete="off">
-        <label className={css.label_form}>
-          Username
-          <Field type="text" name="name" />
-        </label>
-        <label className={css.label_form}>
-          Email
-          <Field type="email" name="email" />
-        </label>
-        <label className={css.label_form}>
-          Password
-          <Field type="password" name="password" />
-        </label>
-        <button type="submit">Register</button>
-      </Form>
-    </Formik>
+    <div className={css.container}>
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <Form className={css.form_register} autoComplete="off">
+          <label className={css.label_form}>
+            Username
+            <Field type="text" name="name" />
+          </label>
+          <label className={css.label_form}>
+            Email
+            <Field type="email" name="email" />
+          </label>
+          <label className={css.label_form}>
+            Password
+            <Field type="password" name="password" />
+          </label>
+          <button type="submit">Register</button>
+        </Form>
+      </Formik>
+    </div>
   );
 }

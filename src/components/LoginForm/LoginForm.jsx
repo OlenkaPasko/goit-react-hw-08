@@ -19,25 +19,27 @@ export default function LoginForm() {
     //.required("Обов'язково для заповнення"),
 //});
   return (
-    <Formik
-      initialValues={{
-        email: "",
-        password: "",
-      }}
-      
-      onSubmit={handleSubmit}
-    >
-      <Form className={css.form} autoComplete="off">
-        <label className={css.label}>
-          Email
-          <Field type="email" name="email" />
-        </label>
-        <label className={css.label}>
-          Password
-          <Field type="password" name="password" />
-        </label>
-        <button type="submit">Log In</button>
-      </Form>
-    </Formik>
+    <div className={css.container}>
+      {" "}
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <Form className={css.login_form} autoComplete="off">
+          <label className={css.login_input}>
+            Email
+            <Field type="email" name="email" />
+          </label>
+          <label className={css.login_input}>
+            Password
+            <Field type="password" name="password" />
+          </label>
+          <button type="submit">Log In</button>
+        </Form>
+      </Formik>
+    </div>
   );
 }

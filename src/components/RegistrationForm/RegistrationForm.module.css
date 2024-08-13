@@ -1,5 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .form_register {
+    padding: 20px;
+    border-radius: 8px;
     width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px
 }
 
 .label_form {
