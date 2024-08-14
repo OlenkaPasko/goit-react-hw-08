@@ -6,7 +6,7 @@ export const api = axios.create({
 });
 
 const setAuthHeader = (token) => {
- api.defaults.headers.common.Authorization = `Bearer ${token}`;
+  api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = () => {
@@ -22,8 +22,9 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await api.post("/users/signup", credentials);
+      console.log("Register Response:", res.data);
       // After successful registration, add the token to the HTTP header
-      setAuthHeader(response.data.token);
+      setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -39,10 +40,10 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
     try {
-      const res = await api.post("/users/login", credentials);
-      // After successful login, add the to.n to the HTTP header
+      const response = await api.post("/users/login", credentials);
+      // After successful login, add the token to the HTTP header
       setAuthHeader(response.data.token);
-      return res.data;
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -55,7 +56,7 @@ export const logIn = createAsyncThunk(
  */
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    await axios.post("/users/logout");
+    await api.post("/users/logout");
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
@@ -72,7 +73,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    // const { token } = thunkAPI.getState().auth;
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue("Unable to fetch user");
@@ -80,7 +80,7 @@ export const refreshUser = createAsyncThunk(
     setAuthHeader(persistedToken);
     try {
       const res = await api.get("/users/current");
-      return response.data;
+      return res.data;
     } catch (error) {
       clearAuthHeader();
       return thunkAPI.rejectWithValue(error.message);

@@ -10,14 +10,14 @@ export default function LoginForm() {
     dispatch(logIn(values));
     actions.resetForm();
   };
-//const validationSchema = Yup.object().shape({
+  //const validationSchema = Yup.object().shape({
   //email: Yup.string()
-    //.email("Невірний формат email")
-    //.required("Обов'язково для заповнення"),
+  //.email("Невірний формат email")
+  //.required("Обов'язково для заповнення"),
   //password: Yup.string()
-   // .min(6, "Пароль повинен містити щонайменше 6 символів")
-    //.required("Обов'язково для заповнення"),
-//});
+  // .min(6, "Пароль повинен містити щонайменше 6 символів")
+  //.required("Обов'язково для заповнення"),
+  //});
   return (
     <div className={css.container}>
       {" "}
