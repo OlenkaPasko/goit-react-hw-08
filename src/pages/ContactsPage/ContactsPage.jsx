@@ -5,7 +5,7 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectIsLoading } from "../../redux/contacts/selectors";
-
+import css from "./ContactsPage.module.css"
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -17,11 +17,13 @@ export default function ContactsPage() {
 
   return (
     <>
-      {" "}
-      <PageTitle>Your contacts</PageTitle>
-      <ContactForm />
-      <div>{isLoading && "Request in progress..."}</div>
-      <ContactList />
+      <div className={css.container}>
+        {" "}
+        <PageTitle className={css.contact_title}>Your contacts</PageTitle>
+        <ContactForm />
+        <div>{isLoading && "Request in progress..."}</div>
+        <ContactList />
+      </div>
     </>
   );
 }
