@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ContactList from "../../components/ContactList/ContactList";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import SearchBox from "../../components/SearchBox/SearchBox";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectIsLoading } from "../../redux/contacts/selectors";
 import { selectContacts, selectError } from "../../redux/contacts/selectors";
@@ -26,6 +27,7 @@ console.log("Contacts:", contacts);
         {isLoading && !error && <b>Loading...</b>}
         {error && <div>Error: {error}</div>}
         <ContactList contacts={contacts} />
+        <SearchBox />
       </div>
     </>
   );
