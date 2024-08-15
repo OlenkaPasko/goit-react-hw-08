@@ -53,6 +53,8 @@ const contactsSlice = createSlice({
       })
       .addCase(logOut.fulfilled, (state) => {
         state.items = [];
+        state.isLoading = false;
+        state.error = null;
       });
   },
 });

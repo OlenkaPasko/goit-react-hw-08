@@ -21,11 +21,11 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const res = await api.post("/users/signup", credentials);
-      console.log("Register Response:", res.data);
+      const response = await api.post("/users/signup", credentials);
+      console.log("Register Response:", response.data);
       // After successful registration, add the token to the HTTP header
-      setAuthHeader(res.data.token);
-      return res.data;
+      setAuthHeader(response.data.token);
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -79,8 +79,8 @@ export const refreshUser = createAsyncThunk(
     }
     setAuthHeader(persistedToken);
     try {
-      const res = await api.get("/users/current");
-      return res.data;
+      const response = await api.get("/users/current");
+      return response.data;
     } catch (error) {
       clearAuthHeader();
       return thunkAPI.rejectWithValue(error.message);
